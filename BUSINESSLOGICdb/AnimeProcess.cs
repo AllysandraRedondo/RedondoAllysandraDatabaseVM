@@ -8,12 +8,7 @@ namespace BUSINESSLOGICdb
     public class AnimeProcess
     {
 
-        private SqlData data;
-
-        public AnimeProcess()
-        {
-            data = new SqlData();
-        }
+        SqlData data = new SqlData();
 
         public List<AnimeContent> GetAllAnime()
         {

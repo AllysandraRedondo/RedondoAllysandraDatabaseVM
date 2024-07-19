@@ -50,9 +50,10 @@ namespace OwnerAPIController.Controllers
 
         }
         [HttpGet("searchanime")]
-        public IEnumerable<AnimeContent> SearchAnime(string keyword)
+        public IEnumerable<AnimeContent> SearchAnime(string AnyInfo)
         {
-            return aniproc.SearchAnime(keyword);
+            return aniproc.SearchAnime(AnyInfo);
+
         }
 
         [HttpPatch("updateanime")]

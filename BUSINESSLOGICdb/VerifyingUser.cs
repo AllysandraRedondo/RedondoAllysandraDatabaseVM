@@ -8,12 +8,7 @@ namespace BUSINESSLOGICdb
     public class VerifyingUser
     {
 
-        OwnerData data;
-
-        public VerifyingUser()
-        {
-            data = new OwnerData();
-        }
+        OwnerData data = new OwnerData();
 
         public List<OwnerContent> GetAllUsers()
         {
