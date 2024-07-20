@@ -1,7 +1,6 @@
 ﻿using DATALAYERdb;
 using MODELSdb;
-using System.Security.Cryptography.Xml;
-using System.Xml.Linq;
+
 
 namespace BUSINESSLOGICdb
 {
@@ -10,8 +9,9 @@ namespace BUSINESSLOGICdb
 
         OwnerData data = new OwnerData();
 
-        public List<OwnerContent> GetAllUsers()
+        public List<OwnerContent> GetAllUsers(string username, string password)
         {
+            OwnerContent o = new OwnerContent { username = username, password = password};
             return data.GetUsers();
         }
 

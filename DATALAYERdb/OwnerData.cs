@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
 using System.Data.SqlClient;
-using System.Security.Cryptography.Xml;
 using MODELSdb;
 
 namespace DATALAYERdb
