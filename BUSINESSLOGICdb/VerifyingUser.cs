@@ -9,9 +9,9 @@ namespace BUSINESSLOGICdb
 
         OwnerData data = new OwnerData();
 
-        public List<OwnerContent> GetAllUsers(string username, string password)
+        public List<OwnerContent> GetAllUsers()
         {
-            OwnerContent o = new OwnerContent { username = username, password = password};
+           
             return data.GetUsers();
         }
 
