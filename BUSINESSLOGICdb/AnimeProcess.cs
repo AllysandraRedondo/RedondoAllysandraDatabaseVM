@@ -64,7 +64,7 @@ namespace BUSINESSLOGICdb
             message.To.Add(new MailboxAddress("User", "redondoally02@gmail.com"));
             message.Subject = subject;
 
-            message.Body = new TextPart("html")
+             message.Body = new TextPart("html")
             {
                 Text = $"<h1>{anime.title} {subject}</h1>" +
                $"<p>Anime Title: {anime.title}</p>" +
