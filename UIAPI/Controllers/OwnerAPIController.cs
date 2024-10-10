@@ -41,7 +41,7 @@ namespace OwnerAPIController.Controllers
         }
 
         [HttpDelete("deleteanime")]
-        public JsonResult RemoveAnime(string title)
+        public JsonResult RemoveAnime(AnimeContent title)
         {
             var r = aniproc.RemoveAnime(title);
             return new JsonResult(r);
