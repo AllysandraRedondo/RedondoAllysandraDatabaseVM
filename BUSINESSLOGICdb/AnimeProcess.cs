@@ -26,22 +26,16 @@ namespace BUSINESSLOGICdb
             return result;
         }
 
-        public int RemoveAnime(AnimeContent title)
+        public int RemoveAnime(string title)
         {
-           int result = data.RemoveAnime(title.title);
+            int result = data.RemoveAnime(title); 
 
             if (result == 1)
             {
-                SendEmailNotification(title, " Selected Anime Deleted", "The Anime that has been selected has deleted successfully.");
+                SendEmailNotification(new MODELSdb.AnimeContent { title = title }, "Selected Anime Deleted", "The Selected Anime has been Successfully Deleted.");
             }
 
             return result;
-
-        }
-
-        public List<AnimeContent> SearchAnime(string AnyInfo)
-        {
-            return data.SearchAnime(AnyInfo);
         }
 
         public int UpdateAnime(AnimeContent AnyInfo)

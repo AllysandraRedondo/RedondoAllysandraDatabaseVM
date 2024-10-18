@@ -81,39 +81,6 @@ namespace DATALAYERdb
             return oldanime;
         }
 
-        public List<AnimeContent> SearchAnime(string AnyInfo)
-        {
-            string search = "SELECT Title, Studio, ReleaseDate, Status, Genre, Episodes, Summary FROM AnimeListTable WHERE Title LIKE @keyword OR Studio LIKE @keyword OR Genre LIKE @keyword";
-            SqlCommand searchanime = new SqlCommand(search, sqlConnection);
-            searchanime.Parameters.AddWithValue("@keyword", "%" + AnyInfo + "%");
-
-            sqlConnection.Open();
-
-            List<AnimeContent> searchResults = new List<AnimeContent>();
-            SqlDataReader read = searchanime.ExecuteReader();
-
-
-
-            while (read.Read())
-            {
-                AnimeContent anime = new AnimeContent
-                {
-                    title = read["Title"].ToString(),
-                    studio = read["Studio"].ToString(),
-                    releasedate = read["ReleaseDate"].ToString(),
-                    status = read["Status"].ToString(),
-                    genre = read["Genre"].ToString(),
-                    episodes = read["Episodes"].ToString(),
-                    summary = read["Summary"].ToString()
-                };
-                searchResults.Add(anime);
-            }
-
-            sqlConnection.Close();
-
-            return searchResults;
-        }
-
         public int UpdateAAnime(string title, string studio, string releasedate, string status, string genre, string episodes, string summary)
         {
             string update = "UPDATE AnimeListTable SET Studio = @studio, ReleaseDate = @releasedate, Status = @status, Genre = @genre, Episodes = @episodes, Summary = @summary WHERE Title = @title";

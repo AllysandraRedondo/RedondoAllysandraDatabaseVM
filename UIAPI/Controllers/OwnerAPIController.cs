@@ -26,6 +26,39 @@ namespace OwnerAPIController.Controllers
             return veruser.GetAllUsers();
         }
 
+
+
+        [HttpPost("Adduser")]
+        public JsonResult Adduser(OwnerContent ownerContent)
+        {
+
+            var r = veruser.AddUser(ownerContent);
+            return new JsonResult(r);
+        }
+
+        [HttpDelete("deleteuser")]
+        public JsonResult RemoveUser(string user)
+        {
+            int result = veruser.RemoveUser(user);
+
+            if (result == 1)
+            {
+                return new JsonResult(result);
+            }
+            else
+            {
+                return new JsonResult(new { message = "User not found." });
+            }
+        }
+
+        [HttpPatch("updateuser")]
+        public JsonResult UpdateUser(OwnerContent AnyInfo)
+        {
+            var r = veruser.UpdateUser(AnyInfo);
+            return new JsonResult(r);
+        }
+        //---------------------------------------------------------------------------------------------------------
+ 
         [HttpGet("anime")]
         public IEnumerable<AnimeContent> GetAllAnime()
         {
@@ -40,18 +73,20 @@ namespace OwnerAPIController.Controllers
             return new JsonResult(r);
         }
 
+
         [HttpDelete("deleteanime")]
-        public JsonResult RemoveAnime(AnimeContent title)
+        public JsonResult RemoveAnime(string title)
         {
-            var r = aniproc.RemoveAnime(title);
-            return new JsonResult(r);
+            int result = aniproc.RemoveAnime(title);
 
-        }
-        [HttpGet("searchanime")]
-        public IEnumerable<AnimeContent> SearchAnime(string AnyInfo)
-        {
-            return aniproc.SearchAnime(AnyInfo);
-
+            if (result == 1)
+            {
+                return new JsonResult(result);
+            }
+            else
+            {
+                return new JsonResult(new {message = "Anime not found." });
+            }
         }
 
         [HttpPatch("updateanime")]
@@ -60,5 +95,8 @@ namespace OwnerAPIController.Controllers
             var r = aniproc.UpdateAnime(AnyInfo);
             return new JsonResult(r);
         }
+
+
+
     }
 }
